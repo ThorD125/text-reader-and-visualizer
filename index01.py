@@ -8,8 +8,10 @@ import pygame
 
 thelanguage="en"
 
+
 if 1 < len(sys.argv):
     thelanguage = sys.argv[1]
+
 
 class TextOnScreen:
     def __init__(self):
@@ -39,25 +41,31 @@ class TextOnScreen:
         pygame.quit()
         sys.exit()
 
+
+
+
+
+
+
+
 def read_lines_incrementally(game, file_path, max_lines):
     with open(file_path, 'r', encoding='utf-8') as file:  # Specify the encoding
         lines = file.readlines()
 
         non_empty_lines = [line.strip() for line in lines if line.strip()]
 
-        for i in range(1, min(len(non_empty_lines), max_lines) + 1):
-            content = '\n'.join(non_empty_lines[:i])
+        for content in non_empty_lines:
 
             # Remove '#', '-', and '>' characters
             filtered_content = content.replace('<br>', '').replace('#', '').replace('->', '').replace('-', '').replace('⦁', '').replace('`','').replace('*','')
 
             if filtered_content.strip():  # Check if there's content to read
                 # Print to console
-                print(filtered_content)
 
                 for line in filtered_content.splitlines():
                     # Remove any leading and trailing spaces
                     fixedLine = line.strip()
+                    print(fixedLine)
 
 
                     # Display on screen        
