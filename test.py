@@ -1,6 +1,6 @@
 import os
 
-folder_path = "./arman"
+folder_path = "./reads"
 
 try:
     for filename in os.listdir(folder_path):

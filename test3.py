@@ -32,7 +32,7 @@ def read_lines_incrementally(file_path, max_lines):
                     pygame.time.Clock().tick(10)
 
 if __name__ == "__main__":
-    directory_path = "./testexam"  # Replace with the actual directory path
+    directory_path = "./reads"  # Replace with the actual directory path
     file_list = os.listdir(directory_path)
 
     for filename in file_list:

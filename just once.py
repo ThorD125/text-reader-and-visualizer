@@ -27,7 +27,7 @@ def read_lines(file_path):
                     pygame.time.Clock().tick(10)
 
 if __name__ == "__main__":
-    file_path = "./testexam/it law.md"  # Replace with the actual file path
+    file_path = "./reads/01 - testfile.md"  # Replace with the actual file path
 
     print(f"Processing file: {file_path}")
     read_lines(file_path)
