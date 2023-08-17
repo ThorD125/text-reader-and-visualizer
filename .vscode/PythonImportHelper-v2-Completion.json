@@ -1,68 +1,11 @@
 [
     {
-        "label": "gTTS",
-        "importPath": "gtts",
-        "description": "gtts",
-        "isExtraImport": true,
-        "detail": "gtts",
-        "documentation": {}
-    },
-    {
-        "label": "gTTS",
-        "importPath": "gtts",
-        "description": "gtts",
-        "isExtraImport": true,
-        "detail": "gtts",
-        "documentation": {}
-    },
-    {
-        "label": "gTTS",
-        "importPath": "gtts",
-        "description": "gtts",
-        "isExtraImport": true,
-        "detail": "gtts",
-        "documentation": {}
-    },
-    {
-        "label": "BytesIO",
-        "importPath": "io",
-        "description": "io",
-        "isExtraImport": true,
-        "detail": "io",
-        "documentation": {}
-    },
-    {
-        "label": "BytesIO",
-        "importPath": "io",
-        "description": "io",
-        "isExtraImport": true,
-        "detail": "io",
-        "documentation": {}
-    },
-    {
-        "label": "BytesIO",
-        "importPath": "io",
-        "description": "io",
-        "isExtraImport": true,
-        "detail": "io",
-        "documentation": {}
-    },
-    {
         "label": "pygame",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "pygame",
         "description": "pygame",
         "detail": "pygame",
-        "documentation": {}
-    },
-    {
-        "label": "os",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "os",
-        "description": "os",
-        "detail": "os",
         "documentation": {}
     },
     {
@@ -84,201 +27,46 @@
         "documentation": {}
     },
     {
-        "label": "read_lines",
-        "kind": 2,
-        "importPath": "just once",
-        "description": "just once",
-        "peekOfCode": "def read_lines(file_path):\n    with open(file_path, 'r', encoding='utf-8') as file:\n        lines = file.readlines()\n        for line in lines:\n            # Remove '#', '-', and '>' characters\n            filtered_line = line.replace('#', '').replace('-', '').replace('>', '')\n            if filtered_line.strip():  # Check if there's content to read\n                # Print to console\n                print(filtered_line)\n                # Read out loud in Dutch (language code 'nl')",
-        "detail": "just once",
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
         "documentation": {}
     },
     {
-        "label": "folder_path",
-        "kind": 5,
-        "importPath": "test",
-        "description": "test",
-        "peekOfCode": "folder_path = \"./arman\"\ntry:\n    for filename in os.listdir(folder_path):\n        file_path = os.path.join(folder_path, filename)\n        if os.path.isfile(file_path):\n            print(f\"Contents of '{filename}':\")\n            try:\n                with open(file_path, 'r', encoding='utf-8') as file:\n                    for line in file:\n                        if line.strip():  # Check if the line is not empty after removing whitespace",
-        "detail": "test",
+        "label": "gTTS",
+        "importPath": "gtts",
+        "description": "gtts",
+        "isExtraImport": true,
+        "detail": "gtts",
         "documentation": {}
     },
     {
-        "label": "read_lines_incrementally",
-        "kind": 2,
-        "importPath": "test2",
-        "description": "test2",
-        "peekOfCode": "def read_lines_incrementally(file_path, max_lines):\n    with open(file_path, 'r') as file:\n        lines = file.readlines()\n        non_empty_lines = [line.strip() for line in lines if line.strip()]\n        for i in range(1, min(len(non_empty_lines), max_lines) + 1):\n            print('\\n'.join(non_empty_lines[:i]))\nif __name__ == \"__main__\":\n    directory_path = \"./tests\"  # Replace with the actual directory path\n    file_list = os.listdir(directory_path)\n    for filename in file_list:",
-        "detail": "test2",
-        "documentation": {}
-    },
-    {
-        "label": "read_lines_incrementally",
-        "kind": 2,
-        "importPath": "test3",
-        "description": "test3",
-        "peekOfCode": "def read_lines_incrementally(file_path, max_lines):\n    with open(file_path, 'r', encoding='utf-8') as file:  # Specify the encoding\n        lines = file.readlines()\n        non_empty_lines = [line.strip() for line in lines if line.strip()]\n        for i in range(1, min(len(non_empty_lines), max_lines) + 1):\n            content = '\\n'.join(non_empty_lines[:i])\n            # Remove '#', '-', and '>' characters\n            filtered_content = content.replace('#', '').replace('-', '').replace('>', '').replace('⦁', '')\n            if filtered_content.strip():  # Check if there's content to read\n                # Print to console",
-        "detail": "test3",
-        "documentation": {}
-    },
-    {
-        "label": "screen_info",
-        "kind": 5,
-        "importPath": "test4",
-        "description": "test4",
-        "peekOfCode": "screen_info = pygame.display.Info()\nscreen_width = screen_info.current_w\nscreen_height = screen_info.current_h\n# Create the screen\nscreen = pygame.display.set_mode((screen_width, screen_height), pygame.FULLSCREEN)\npygame.display.set_caption(\"Fullscreen Message\")\n# Define colors\nblack = (0, 0, 0)\nwhite = (255, 255, 255)\n# Load a font with doubled size",
-        "detail": "test4",
-        "documentation": {}
-    },
-    {
-        "label": "screen_width",
-        "kind": 5,
-        "importPath": "test4",
-        "description": "test4",
-        "peekOfCode": "screen_width = screen_info.current_w\nscreen_height = screen_info.current_h\n# Create the screen\nscreen = pygame.display.set_mode((screen_width, screen_height), pygame.FULLSCREEN)\npygame.display.set_caption(\"Fullscreen Message\")\n# Define colors\nblack = (0, 0, 0)\nwhite = (255, 255, 255)\n# Load a font with doubled size\nfont_size = 144  # Double the previous font size",
-        "detail": "test4",
-        "documentation": {}
-    },
-    {
-        "label": "screen_height",
-        "kind": 5,
-        "importPath": "test4",
-        "description": "test4",
-        "peekOfCode": "screen_height = screen_info.current_h\n# Create the screen\nscreen = pygame.display.set_mode((screen_width, screen_height), pygame.FULLSCREEN)\npygame.display.set_caption(\"Fullscreen Message\")\n# Define colors\nblack = (0, 0, 0)\nwhite = (255, 255, 255)\n# Load a font with doubled size\nfont_size = 144  # Double the previous font size\nfont = pygame.font.Font(None, font_size)",
-        "detail": "test4",
-        "documentation": {}
-    },
-    {
-        "label": "screen",
-        "kind": 5,
-        "importPath": "test4",
-        "description": "test4",
-        "peekOfCode": "screen = pygame.display.set_mode((screen_width, screen_height), pygame.FULLSCREEN)\npygame.display.set_caption(\"Fullscreen Message\")\n# Define colors\nblack = (0, 0, 0)\nwhite = (255, 255, 255)\n# Load a font with doubled size\nfont_size = 144  # Double the previous font size\nfont = pygame.font.Font(None, font_size)\n# Define messages\nmessages = [",
-        "detail": "test4",
-        "documentation": {}
-    },
-    {
-        "label": "black",
-        "kind": 5,
-        "importPath": "test4",
-        "description": "test4",
-        "peekOfCode": "black = (0, 0, 0)\nwhite = (255, 255, 255)\n# Load a font with doubled size\nfont_size = 144  # Double the previous font size\nfont = pygame.font.Font(None, font_size)\n# Define messages\nmessages = [\n    \"Hello, this is the initial message!\",\n    \"This is the updated message!\",\n]",
-        "detail": "test4",
-        "documentation": {}
-    },
-    {
-        "label": "white",
-        "kind": 5,
-        "importPath": "test4",
-        "description": "test4",
-        "peekOfCode": "white = (255, 255, 255)\n# Load a font with doubled size\nfont_size = 144  # Double the previous font size\nfont = pygame.font.Font(None, font_size)\n# Define messages\nmessages = [\n    \"Hello, this is the initial message!\",\n    \"This is the updated message!\",\n]\n# Initialize message index and render the initial text",
-        "detail": "test4",
-        "documentation": {}
-    },
-    {
-        "label": "font_size",
-        "kind": 5,
-        "importPath": "test4",
-        "description": "test4",
-        "peekOfCode": "font_size = 144  # Double the previous font size\nfont = pygame.font.Font(None, font_size)\n# Define messages\nmessages = [\n    \"Hello, this is the initial message!\",\n    \"This is the updated message!\",\n]\n# Initialize message index and render the initial text\ncurrent_message_index = 0\ntext = font.render(messages[current_message_index], True, white)",
-        "detail": "test4",
-        "documentation": {}
-    },
-    {
-        "label": "font",
-        "kind": 5,
-        "importPath": "test4",
-        "description": "test4",
-        "peekOfCode": "font = pygame.font.Font(None, font_size)\n# Define messages\nmessages = [\n    \"Hello, this is the initial message!\",\n    \"This is the updated message!\",\n]\n# Initialize message index and render the initial text\ncurrent_message_index = 0\ntext = font.render(messages[current_message_index], True, white)\ntext_rect = text.get_rect()",
-        "detail": "test4",
-        "documentation": {}
-    },
-    {
-        "label": "messages",
-        "kind": 5,
-        "importPath": "test4",
-        "description": "test4",
-        "peekOfCode": "messages = [\n    \"Hello, this is the initial message!\",\n    \"This is the updated message!\",\n]\n# Initialize message index and render the initial text\ncurrent_message_index = 0\ntext = font.render(messages[current_message_index], True, white)\ntext_rect = text.get_rect()\ntext_rect.center = (screen_width // 2, screen_height // 2)\n# Set the initial time",
-        "detail": "test4",
-        "documentation": {}
-    },
-    {
-        "label": "current_message_index",
-        "kind": 5,
-        "importPath": "test4",
-        "description": "test4",
-        "peekOfCode": "current_message_index = 0\ntext = font.render(messages[current_message_index], True, white)\ntext_rect = text.get_rect()\ntext_rect.center = (screen_width // 2, screen_height // 2)\n# Set the initial time\nstart_time = pygame.time.get_ticks()\n# Main loop\nrunning = True\nwhile running:\n    for event in pygame.event.get():",
-        "detail": "test4",
-        "documentation": {}
-    },
-    {
-        "label": "text",
-        "kind": 5,
-        "importPath": "test4",
-        "description": "test4",
-        "peekOfCode": "text = font.render(messages[current_message_index], True, white)\ntext_rect = text.get_rect()\ntext_rect.center = (screen_width // 2, screen_height // 2)\n# Set the initial time\nstart_time = pygame.time.get_ticks()\n# Main loop\nrunning = True\nwhile running:\n    for event in pygame.event.get():\n        if event.type == pygame.QUIT:",
-        "detail": "test4",
-        "documentation": {}
-    },
-    {
-        "label": "text_rect",
-        "kind": 5,
-        "importPath": "test4",
-        "description": "test4",
-        "peekOfCode": "text_rect = text.get_rect()\ntext_rect.center = (screen_width // 2, screen_height // 2)\n# Set the initial time\nstart_time = pygame.time.get_ticks()\n# Main loop\nrunning = True\nwhile running:\n    for event in pygame.event.get():\n        if event.type == pygame.QUIT:\n            running = False",
-        "detail": "test4",
-        "documentation": {}
-    },
-    {
-        "label": "text_rect.center",
-        "kind": 5,
-        "importPath": "test4",
-        "description": "test4",
-        "peekOfCode": "text_rect.center = (screen_width // 2, screen_height // 2)\n# Set the initial time\nstart_time = pygame.time.get_ticks()\n# Main loop\nrunning = True\nwhile running:\n    for event in pygame.event.get():\n        if event.type == pygame.QUIT:\n            running = False\n    screen.fill(black)",
-        "detail": "test4",
-        "documentation": {}
-    },
-    {
-        "label": "start_time",
-        "kind": 5,
-        "importPath": "test4",
-        "description": "test4",
-        "peekOfCode": "start_time = pygame.time.get_ticks()\n# Main loop\nrunning = True\nwhile running:\n    for event in pygame.event.get():\n        if event.type == pygame.QUIT:\n            running = False\n    screen.fill(black)\n    # Get the elapsed time in milliseconds\n    elapsed_time = pygame.time.get_ticks() - start_time",
-        "detail": "test4",
-        "documentation": {}
-    },
-    {
-        "label": "running",
-        "kind": 5,
-        "importPath": "test4",
-        "description": "test4",
-        "peekOfCode": "running = True\nwhile running:\n    for event in pygame.event.get():\n        if event.type == pygame.QUIT:\n            running = False\n    screen.fill(black)\n    # Get the elapsed time in milliseconds\n    elapsed_time = pygame.time.get_ticks() - start_time\n    # Change the message after 1000 milliseconds (1 second)\n    if elapsed_time >= 1000:",
-        "detail": "test4",
+        "label": "BytesIO",
+        "importPath": "io",
+        "description": "io",
+        "isExtraImport": true,
+        "detail": "io",
         "documentation": {}
     },
     {
         "label": "TextOnScreen",
         "kind": 6,
-        "importPath": "text class",
-        "description": "text class",
+        "importPath": "index",
+        "description": "index",
         "peekOfCode": "class TextOnScreen:\n    def __init__(self):\n        pygame.init()\n        self.screen_info = pygame.display.Info()  # Get screen info\n        self.width, self.height = self.screen_info.current_w, self.screen_info.current_h\n        self.screen = pygame.display.set_mode((self.width, self.height), pygame.FULLSCREEN)\n        pygame.display.set_caption(\"Text on Pygame Screen\")\n        self.white = (255, 255, 255)\n        self.black = (0, 0, 0)\n        self.font = pygame.font.Font(None, 144)",
-        "detail": "text class",
-        "documentation": {}
-    },
-    {
-        "label": "TextOnScreen",
-        "kind": 6,
-        "importPath": "together",
-        "description": "together",
-        "peekOfCode": "class TextOnScreen:\n    def __init__(self):\n        pygame.init()\n        self.screen_info = pygame.display.Info()  # Get screen info\n        self.width, self.height = self.screen_info.current_w, self.screen_info.current_h\n        self.screen = pygame.display.set_mode((self.width, self.height), pygame.FULLSCREEN)\n        pygame.display.set_caption(\"Text on Pygame Screen\")\n        self.white = (255, 255, 255)\n        self.black = (0, 0, 0)\n        self.font = pygame.font.Font(None, 144)",
-        "detail": "together",
+        "detail": "index",
         "documentation": {}
     },
     {
         "label": "read_lines_incrementally",
         "kind": 2,
-        "importPath": "together",
-        "description": "together",
-        "peekOfCode": "def read_lines_incrementally(game, file_path, max_lines):\n    with open(file_path, 'r', encoding='utf-8') as file:  # Specify the encoding\n        lines = file.readlines()\n        non_empty_lines = [line.strip() for line in lines if line.strip()]\n        for i in range(1, min(len(non_empty_lines), max_lines) + 1):\n            content = '\\n'.join(non_empty_lines[:i])\n            # Remove '#', '-', and '>' characters\n            filtered_content = content.replace('#', '').replace('-', '').replace('>', '').replace('⦁', '')\n            if filtered_content.strip():  # Check if there's content to read\n                # Print to console",
-        "detail": "together",
+        "importPath": "index",
+        "description": "index",
+        "peekOfCode": "def read_lines_incrementally(game, file_path, max_lines):\n    with open(file_path, 'r', encoding='utf-8') as file:  # Specify the encoding\n        lines = file.readlines()\n        non_empty_lines = [line.strip() for line in lines if line.strip()]\n        for i in range(1, min(len(non_empty_lines), max_lines) + 1):\n            content = '\\n'.join(non_empty_lines[:i])\n            # Remove '#', '-', and '>' characters\n            filtered_content = content.replace('<br>', '').replace('#', '').replace('->', '').replace('-', '').replace('⦁', '').replace('`','').replace('*','')\n            if filtered_content.strip():  # Check if there's content to read\n                # Print to console",
+        "detail": "index",
         "documentation": {}
     }
 ]
