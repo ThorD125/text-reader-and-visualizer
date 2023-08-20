@@ -33,6 +33,7 @@ class TextOnScreen:
         self.text_rect = self.text.get_rect(center=(self.width // 2, self.height // 2))
 
     def update_display(self):
+        pygame.event.get()
         self.screen.fill(self.black)
         self.screen.blit(self.text, self.text_rect)
         pygame.display.flip()
@@ -40,13 +41,6 @@ class TextOnScreen:
     def quit(self):
         pygame.quit()
         sys.exit()
-
-
-
-
-
-
-
 
 def read_lines_incrementally(game, file_path, max_lines):
     with open(file_path, 'r', encoding='utf-8') as file:  # Specify the encoding
@@ -57,7 +51,7 @@ def read_lines_incrementally(game, file_path, max_lines):
         for content in non_empty_lines:
 
             # Remove '#', '-', and '>' characters
-            filtered_content = content.replace('<br>', '').replace('#', '').replace('->', '').replace('-', '').replace('⦁', '').replace('`','').replace('*','')
+            filtered_content = content.replace('<br>', '').replace('#', '').replace('->', '').replace('-', '').replace('⦁', '').replace('`','').replace('*','').replace('…','')
 
             if filtered_content.strip():  # Check if there's content to read
                 # Print to console
@@ -71,7 +65,6 @@ def read_lines_incrementally(game, file_path, max_lines):
                     # Display on screen        
                     game.change_text(fixedLine)
                     game.update_display()
-                    pygame.time.wait(500)  # Wait for 1 second
 
 
                     # Read out loud in Dutch (language code 'nl')
@@ -86,10 +79,11 @@ def read_lines_incrementally(game, file_path, max_lines):
                         pygame.time.Clock().tick(10)
 
 if __name__ == "__main__":
-    directory_path = "./OSC"  # Replace with the actual directory path
+    directory_path = "./reads"  # Replace with the actual directory path
     file_list = os.listdir(directory_path)
 
     game = TextOnScreen()
+    # game = None
 
     for filename in file_list:
         if filename.endswith(".md"):

@@ -52,6 +52,22 @@
         "documentation": {}
     },
     {
+        "label": "gTTS",
+        "importPath": "gtts",
+        "description": "gtts",
+        "isExtraImport": true,
+        "detail": "gtts",
+        "documentation": {}
+    },
+    {
+        "label": "BytesIO",
+        "importPath": "io",
+        "description": "io",
+        "isExtraImport": true,
+        "detail": "io",
+        "documentation": {}
+    },
+    {
         "label": "BytesIO",
         "importPath": "io",
         "description": "io",
@@ -99,8 +115,17 @@
         "kind": 2,
         "importPath": "index01",
         "description": "index01",
-        "peekOfCode": "def read_lines_incrementally(game, file_path, max_lines):\n    with open(file_path, 'r', encoding='utf-8') as file:  # Specify the encoding\n        lines = file.readlines()\n        non_empty_lines = [line.strip() for line in lines if line.strip()]\n        for content in non_empty_lines:\n            # Remove '#', '-', and '>' characters\n            filtered_content = content.replace('<br>', '').replace('#', '').replace('->', '').replace('-', '').replace('⦁', '').replace('`','').replace('*','')\n            if filtered_content.strip():  # Check if there's content to read\n                # Print to console\n                for line in filtered_content.splitlines():",
+        "peekOfCode": "def read_lines_incrementally(game, file_path, max_lines):\n    with open(file_path, 'r', encoding='utf-8') as file:  # Specify the encoding\n        lines = file.readlines()\n        non_empty_lines = [line.strip() for line in lines if line.strip()]\n        for content in non_empty_lines:\n            # Remove '#', '-', and '>' characters\n            filtered_content = content.replace('<br>', '').replace('#', '').replace('->', '').replace('-', '').replace('⦁', '').replace('`','').replace('*','').replace('…','')\n            if filtered_content.strip():  # Check if there's content to read\n                # Print to console\n                for line in filtered_content.splitlines():",
         "detail": "index01",
+        "documentation": {}
+    },
+    {
+        "label": "TextOnScreen",
+        "kind": 6,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "class TextOnScreen:\n    def __init__(self):\n        pygame.init()\n        self.screen_info = pygame.display.Info()  # Get screen info\n        self.width, self.height = self.screen_info.current_w, self.screen_info.current_h\n        self.screen = pygame.display.set_mode((self.width, self.height), pygame.FULLSCREEN)\n        pygame.display.set_caption(\"Text on Pygame Screen\")\n        self.white = (255, 255, 255)\n        self.black = (0, 0, 0)\n        self.font = pygame.font.Font(None, 144)",
+        "detail": "test",
         "documentation": {}
     }
 ]

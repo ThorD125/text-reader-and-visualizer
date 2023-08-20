@@ -31,10 +31,18 @@ class TextOnScreen:
         self.text_rect = self.text.get_rect(center=(self.width // 2, self.height // 2))
 
     def update_display(self):
+        pygame.event.get()
         self.screen.fill(self.black)
         self.screen.blit(self.text, self.text_rect)
         pygame.display.flip()
 
+    def handle_events(self):
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                self.quit()
+            elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:  # Left mouse button
+                print("Mouse clicked on the screen.")
+    
     def quit(self):
         pygame.quit()
         sys.exit()
@@ -63,24 +71,24 @@ def read_lines_incrementally(game, file_path, max_lines):
                     # Display on screen        
                     game.change_text(fixedLine)
                     game.update_display()
-                    pygame.time.wait(500)  # Wait for 1 second
 
 
-                    # Read out loud in Dutch (language code 'nl')
-                    tts = gTTS(fixedLine, lang=thelanguage)
-                    speech_stream = BytesIO()
-                    tts.write_to_fp(speech_stream)
-                    speech_stream.seek(0)
-                    pygame.mixer.init()
-                    pygame.mixer.music.load(speech_stream)
-                    pygame.mixer.music.play()
-                    while pygame.mixer.music.get_busy():
-                        pygame.time.Clock().tick(10)
+                    # # Read out loud in Dutch (language code 'nl')
+                    # tts = gTTS(fixedLine, lang=thelanguage)
+                    # speech_stream = BytesIO()
+                    # tts.write_to_fp(speech_stream)
+                    # speech_stream.seek(0)
+                    # pygame.mixer.init()
+                    # pygame.mixer.music.load(speech_stream)
+                    # pygame.mixer.music.play()
+                    # while pygame.mixer.music.get_busy():
+                    #     pygame.time.Clock().tick(10)
 
 if __name__ == "__main__":
     directory_path = "./OSC"  # Replace with the actual directory path
     file_list = os.listdir(directory_path)
 
+    # game = None
     game = TextOnScreen()
 
     for filename in file_list:
