@@ -73,19 +73,19 @@ def read_lines_incrementally(game, file_path, max_lines):
                     game.update_display()
 
 
-                    # # Read out loud in Dutch (language code 'nl')
-                    # tts = gTTS(fixedLine, lang=thelanguage)
-                    # speech_stream = BytesIO()
-                    # tts.write_to_fp(speech_stream)
-                    # speech_stream.seek(0)
-                    # pygame.mixer.init()
-                    # pygame.mixer.music.load(speech_stream)
-                    # pygame.mixer.music.play()
-                    # while pygame.mixer.music.get_busy():
-                    #     pygame.time.Clock().tick(10)
+                    # Read out loud in Dutch (language code 'nl')
+                    tts = gTTS(fixedLine, lang=thelanguage)
+                    speech_stream = BytesIO()
+                    tts.write_to_fp(speech_stream)
+                    speech_stream.seek(0)
+                    pygame.mixer.init()
+                    pygame.mixer.music.load(speech_stream)
+                    pygame.mixer.music.play()
+                    while pygame.mixer.music.get_busy():
+                        pygame.time.Clock().tick(10)
 
 if __name__ == "__main__":
-    directory_path = "./OSC"  # Replace with the actual directory path
+    directory_path = "./reads"  # Replace with the actual directory path
     file_list = os.listdir(directory_path)
 
     # game = None
