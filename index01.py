@@ -42,6 +42,8 @@ class TextOnScreen:
         pygame.quit()
         sys.exit()
 
+import re
+
 def read_lines_incrementally(game, file_path, max_lines):
     with open(file_path, 'r', encoding='utf-8') as file:  # Specify the encoding
         lines = file.readlines()
@@ -51,35 +53,62 @@ def read_lines_incrementally(game, file_path, max_lines):
         for content in non_empty_lines:
 
             # Remove '#', '-', and '>' characters
-            filtered_content = content.replace('<br>', '').replace('#', '').replace('->', '').replace('-', '').replace('⦁', '').replace('`','').replace('*','').replace('…','')
+            filtered_content = content.replace(';', '').replace('<br>', '').replace('|', '').replace('#', '').replace('->', '').replace('-', '').replace('⦁', '').replace('`','').replace('*','').replace('…','')
 
             if filtered_content.strip():  # Check if there's content to read
                 # Print to console
 
                 for line in filtered_content.splitlines():
                     # Remove any leading and trailing spaces
-                    fixedLine = line.strip()
+                    fixedLine = re.sub(r"\t", " ", re.sub(r'\s+', " ", line)).strip()
+
                     print(fixedLine)
 
+                    splits = fixedLine.split(' ')
 
-                    # Display on screen        
-                    game.change_text(fixedLine)
-                    game.update_display()
+                    splittext = ""
 
 
-                    # Read out loud in Dutch (language code 'nl')
-                    tts = gTTS(fixedLine, lang=thelanguage)
-                    speech_stream = BytesIO()
-                    tts.write_to_fp(speech_stream)
-                    speech_stream.seek(0)
-                    pygame.mixer.init()
-                    pygame.mixer.music.load(speech_stream)
-                    pygame.mixer.music.play()
-                    while pygame.mixer.music.get_busy():
-                        pygame.time.Clock().tick(10)
+                    fixedLines = []
+
+                    count = 0
+                    for x in splits:
+                        count += 1
+                        
+                        if 0<len(fixedLines):
+                            if fixedLines[-1] == splittext:
+                                fixedLines.pop()
+                        splittext += x + " "
+                        fixedLines.append(splittext)
+                        if count > 4:
+                            count = 0
+                            splittext = ""
+                    
+                    for fixedLine in fixedLines:
+                        print(fixedLine)
+
+                        # Display on screen        
+                        game.change_text(fixedLine)
+                        game.update_display()
+
+
+                        # Read out loud in Dutch (language code 'nl')
+                        try:
+                            tts = gTTS(fixedLine, lang=thelanguage)
+                            speech_stream = BytesIO()
+                            tts.write_to_fp(speech_stream)
+                            speech_stream.seek(0)
+                            pygame.mixer.init()
+                            pygame.mixer.music.load(speech_stream)
+                            pygame.mixer.music.play()
+                            while pygame.mixer.music.get_busy():
+                                pygame.time.Clock().tick(10)
+                        except:
+                            print("Error")
+                            pass
 
 if __name__ == "__main__":
-    directory_path = "./reads"  # Replace with the actual directory path
+    directory_path = "./cyber"  # Replace with the actual directory path
     file_list = os.listdir(directory_path)
 
     game = TextOnScreen()

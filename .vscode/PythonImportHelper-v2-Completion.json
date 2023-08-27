@@ -84,6 +84,15 @@
         "documentation": {}
     },
     {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
         "label": "TextOnScreen",
         "kind": 6,
         "importPath": "index",
@@ -115,7 +124,7 @@
         "kind": 2,
         "importPath": "index01",
         "description": "index01",
-        "peekOfCode": "def read_lines_incrementally(game, file_path, max_lines):\n    with open(file_path, 'r', encoding='utf-8') as file:  # Specify the encoding\n        lines = file.readlines()\n        non_empty_lines = [line.strip() for line in lines if line.strip()]\n        for content in non_empty_lines:\n            # Remove '#', '-', and '>' characters\n            filtered_content = content.replace('<br>', '').replace('#', '').replace('->', '').replace('-', '').replace('⦁', '').replace('`','').replace('*','').replace('…','')\n            if filtered_content.strip():  # Check if there's content to read\n                # Print to console\n                for line in filtered_content.splitlines():",
+        "peekOfCode": "def read_lines_incrementally(game, file_path, max_lines):\n    with open(file_path, 'r', encoding='utf-8') as file:  # Specify the encoding\n        lines = file.readlines()\n        non_empty_lines = [line.strip() for line in lines if line.strip()]\n        for content in non_empty_lines:\n            # Remove '#', '-', and '>' characters\n            filtered_content = content.replace(';', '').replace('<br>', '').replace('|', '').replace('#', '').replace('->', '').replace('-', '').replace('⦁', '').replace('`','').replace('*','').replace('…','')\n            if filtered_content.strip():  # Check if there's content to read\n                # Print to console\n                for line in filtered_content.splitlines():",
         "detail": "index01",
         "documentation": {}
     },
